@@ -1,0 +1,43 @@
+{
+   "name": "chacha20",
+   "version": "0.1.1",
+   "main":"chacha20.js",
+   "dependencies": {
+   },
+   "devDependencies": {
+     "chai": "*",
+     "mocha": "*"
+   },
+  "keywords": [
+    "chacha",
+    "chach20",
+    "salsa20"
+  ],
+  "description": "A JS implementation of ChaCha20",
+  "homepage": "https://github.com/quartzjer/chacha20",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quartzjer/chacha20.git"
+  },
+  "licenses": [
+  {
+    "type": "Public Domain",
+  }
+  ],
+  "author": {
+    "name": "Devi Mandiri",
+    "email": "me@devi.web.id",
+    "url": "https://github.com/devi"
+  },
+  "maintainers": [
+    {
+    "name": "Jeremie Miller",
+    "email": "jeremie@jabber.org",
+    "url": "http://jeremie.com/"
+    }
+  ],
+   "engines": {
+     "node": "0.10.x",
+     "npm":  ">1.2.x"
+   }
+}
