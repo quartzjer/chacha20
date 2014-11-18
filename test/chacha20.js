@@ -1,11 +1,11 @@
 var expect = require('chai').expect;
-var ext = require('../index.js');
+var lib = require('../chacha20.js');
 
 
-describe('http', function(){
+describe('chacha20', function(){
 
   it('exports an object', function(){
-    expect(ext).to.be.a('object');
+    expect(lib).to.be.a('object');
   });
 
   it('is an extension', function(){
