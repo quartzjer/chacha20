@@ -20,6 +20,7 @@ describe('chacha20', function(){
   });
 
   it('original tests', function(){
+    var Chacha20 = chacha20.Cipher;
 
     //--------------------------- test -----------------------------//
     function fromHex(h) {
@@ -227,6 +228,9 @@ describe('chacha20', function(){
         }
       }
     }
+
+    chacha20_block_test();
+    chacha20_encryption_test();
   });
 
 });
