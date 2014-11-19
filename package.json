@@ -1,6 +1,6 @@
 {
    "name": "chacha20",
-   "version": "0.1.1",
+   "version": "0.1.2",
    "main":"chacha20.js",
    "dependencies": {
    },
@@ -10,10 +10,11 @@
    },
   "keywords": [
     "chacha",
-    "chach20",
-    "salsa20"
+    "chacha20",
+    "salsa20",
+    "browserify"
   ],
-  "description": "A JS implementation of ChaCha20",
+  "description": "A pure JavaScript implementation of the ChaCha20 cipher",
   "homepage": "https://github.com/quartzjer/chacha20",
   "repository": {
     "type": "git",
