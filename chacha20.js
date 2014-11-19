@@ -36,10 +36,20 @@ var Chacha20 = function(key, nonce, counter) {
   this.input[9] = U8TO32_LE(key, 20);
   this.input[10] = U8TO32_LE(key, 24);
   this.input[11] = U8TO32_LE(key, 28);
-  this.input[12] = counter;
-  this.input[13] = U8TO32_LE(nonce, 0);
-  this.input[14] = U8TO32_LE(nonce, 4);
-  this.input[15] = U8TO32_LE(nonce, 8);
+  // be compatible with the reference ChaCha depending on the nonce size
+  if(nonce.length == 12)
+  {
+    this.input[12] = counter;
+    this.input[13] = U8TO32_LE(nonce, 0);
+    this.input[14] = U8TO32_LE(nonce, 4);
+    this.input[15] = U8TO32_LE(nonce, 8);
+  }else{
+    this.input[12] = counter;
+    this.input[13] = 0;
+    this.input[14] = U8TO32_LE(nonce, 0);
+    this.input[15] = U8TO32_LE(nonce, 4);
+    
+  }
 };
 
 Chacha20.prototype.quarterRound = function(x, a, b, c, d) {
