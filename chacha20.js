@@ -93,5 +93,14 @@ Chacha20.prototype.keystream = function(dst, len) {
   this.encrypt(dst, dst, len);
 };
 
+// additions to make it easier and export it as a module
 
+exports.Cipher = Chacha20;
 
+exports.encrypt = exports.decrypt = function(key, nonce, data)
+{
+  var cipher = new Chacha20(key, nonce);
+  var ret = new Buffer(data.length);
+  cipher.encrypt(ret, data, data.length);
+  return ret;
+}

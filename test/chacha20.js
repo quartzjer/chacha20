@@ -1,14 +1,26 @@
 var expect = require('chai').expect;
-var lib = require('../chacha20.js');
+var chacha20 = require('..');
 
 
 describe('chacha20', function(){
 
   it('exports an object', function(){
-    expect(lib).to.be.a('object');
+    expect(chacha20).to.be.a('object');
   });
 
-  it('is an extension', function(){
+  it('handles buffers', function(){
+    var key = new Buffer(32);
+    key.fill(0);
+    var nonce = new Buffer(8);
+    nonce.fill(0);
+    var data = "\0\0\0\0";
+    var out = chacha20.encrypt(key, nonce, new Buffer(data));
+    expect(out.toString('hex')).to.be.equal("76b8e0ad");
+    expect(chacha20.decrypt(key, nonce, out).toString()).to.be.equal(data);
+  });
+
+  it('original tests', function(){
+
     //--------------------------- test -----------------------------//
     function fromHex(h) {
       h = h.replace(/([^0-9a-f])/g, '');
