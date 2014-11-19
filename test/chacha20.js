@@ -8,15 +8,42 @@ describe('chacha20', function(){
     expect(chacha20).to.be.a('object');
   });
 
-  it('handles buffers', function(){
+  it('reference tests', function(){
     var key = new Buffer(32);
     key.fill(0);
     var nonce = new Buffer(8);
     nonce.fill(0);
-    var data = "\0\0\0\0";
+    var data = "\0\0\0\0\0\0\0\0\0"; // 9
     var out = chacha20.encrypt(key, nonce, new Buffer(data));
-    expect(out.toString('hex')).to.be.equal("76b8e0ad");
+    expect(out.toString('hex')).to.be.equal("76b8e0ada0f13d9040");
     expect(chacha20.decrypt(key, nonce, out).toString()).to.be.equal(data);
+
+    key.fill(0xff);
+    nonce.fill(0xff);
+    var ff = new Buffer(9);
+    ff.fill(0xff);
+    var out = chacha20.encrypt(key, nonce, ff);
+    expect(out.toString('hex')).to.be.equal("2640c09431912f4abd");
+    expect(chacha20.decrypt(key, nonce, out).toString("hex")).to.be.equal(ff.toString("hex"));
+  });
+
+  it('draft tests', function(){
+    var key = new Buffer(32);
+    key.fill(0);
+    var nonce = new Buffer(12);
+    nonce.fill(0);
+    var data = "\0\0\0\0\0\0\0\0\0"; // 9
+    var out = chacha20.encrypt(key, nonce, new Buffer(data));
+    expect(out.toString('hex')).to.be.equal("76b8e0ada0f13d9040");
+    expect(chacha20.decrypt(key, nonce, out).toString()).to.be.equal(data);
+
+    key.fill(0xff);
+    nonce.fill(0xff);
+    var ff = new Buffer(9);
+    ff.fill(0xff);
+    var out = chacha20.encrypt(key, nonce, ff);
+    expect(out.toString('hex')).to.be.equal("2919cb6a15012803c4");
+    expect(chacha20.decrypt(key, nonce, out).toString("hex")).to.be.equal(ff.toString("hex"));
   });
 
   it('original tests', function(){
