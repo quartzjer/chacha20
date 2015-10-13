@@ -1,13 +1,12 @@
 {
-   "name": "chacha20",
-   "version": "0.1.2",
-   "main":"chacha20.js",
-   "dependencies": {
-   },
-   "devDependencies": {
-     "chai": "*",
-     "mocha": "*"
-   },
+  "name": "chacha20",
+  "version": "0.1.3",
+  "main": "chacha20.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  },
   "keywords": [
     "chacha",
     "chacha20",
@@ -20,7 +19,7 @@
     "type": "git",
     "url": "https://github.com/quartzjer/chacha20.git"
   },
-  "license":"CC0-1.0",
+  "license": "CC0-1.0",
   "scripts": {
     "test": "mocha"
   },
@@ -31,13 +30,13 @@
   },
   "maintainers": [
     {
-    "name": "Jeremie Miller",
-    "email": "jeremie@jabber.org",
-    "url": "http://jeremie.com/"
+      "name": "Jeremie Miller",
+      "email": "jeremie@jabber.org",
+      "url": "http://jeremie.com/"
     }
   ],
-   "engines": {
-     "node": ">0.10.x",
-     "npm":  ">1.2.x"
-   }
+  "engines": {
+    "node": ">0.10.x",
+    "npm": ">1.2.x"
+  }
 }
