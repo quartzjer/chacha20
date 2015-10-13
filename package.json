@@ -20,11 +20,10 @@
     "type": "git",
     "url": "https://github.com/quartzjer/chacha20.git"
   },
-  "licenses": [
-  {
-    "type": "Public Domain"
-  }
-  ],
+  "license":"CC0-1.0",
+  "scripts": {
+    "test": "mocha"
+  },
   "author": {
     "name": "Devi Mandiri",
     "email": "me@devi.web.id",
@@ -38,7 +37,7 @@
     }
   ],
    "engines": {
-     "node": "0.10.x",
+     "node": ">0.10.x",
      "npm":  ">1.2.x"
    }
 }
