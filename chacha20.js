@@ -110,7 +110,7 @@ exports.Cipher = Chacha20;
 exports.encrypt = exports.decrypt = function(key, nonce, data)
 {
   var cipher = new Chacha20(key, nonce, 1);
-  var ret = new Buffer(data.length);
+  var ret = Buffer.alloc(data.length);
   cipher.encrypt(ret, data, data.length);
   return ret;
 }
